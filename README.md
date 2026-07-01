@@ -4,7 +4,7 @@ A sleek, responsive, and modern web-based music player frontend built using vani
 
 ## 📱 Live Preview
 
-[![![music-player](image.png)]](https://pku88058-dot.github.io/music-player/)
+[![music-player](image.png)](https://pku88058-dot.github.io/music-player/)
 
 *Click on the image above to open the live interactive application.*
 
@@ -22,15 +22,15 @@ A sleek, responsive, and modern web-based music player frontend built using vani
 *   **Structure**: HTML5
 *   **Styling**: CSS3 & Bootstrap 5
 *   **Logic**: Vanilla JavaScript (ES6+)
-*   **Icons**: [FontAwesome / Bootstrap Icons]
+*   **Icons**: Bootstrap Icons
 
 ## 📂 Project Structure
 
 ```text
-├── img/          # Images, album art, and local audio tracks
+├── img/             # Album art and visual assets
 ├── css/             # Custom stylesheets complementing Bootstrap
 ├── js/              # JavaScript logic (audio APIs, DOM manipulation)
-├── html/            #HTML folder
+├── html/            # HTML structural files
 └── README.md        # Project documentation
 ```
 
@@ -41,9 +41,7 @@ A sleek, responsive, and modern web-based music player frontend built using vani
 *   Lyrics synchronization with the active track timeline.
 *   Local storage integration to remember the user's last played song.
 
-
 ## 🧑‍💻 Author
 
-*   **Your Name** - [@Its P](https://github.com/pku88058-dot)
-*   Project Link: [music-player](https://pku88058-dot.github.io/music-player/)
-
+*   **Its P** - [@pku88058-dot](https://github.com/pku88058-dot)
+*   Project Link: [GitHub Repository](https://github.com)
