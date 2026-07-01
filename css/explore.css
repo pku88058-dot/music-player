@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body,
+body * {
+    text-transform: capitalize;
+}
+
+
+.category-card {
+    height: 180px;
+    border-radius: 18px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-end;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-card:hover {
+    transform: scale(1.03);
+}
+
+.bollywood {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+}
+
+.romantic {
+    background: linear-gradient(135deg, #ff4b91, #ff7675);
+}
+
+.lofi {
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+}
+
+.party {
+    background: linear-gradient(135deg, #00c9ff, #92fe9d);
+}
+
+.mood-card {
+    height: 180px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.mood-card:hover {
+    transform: translateY(-8px);
+}
+
+.mood-card i {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.happy {
+    background: linear-gradient(135deg, #FFD54F, #FF9800);
+}
+
+.sad {
+    background: linear-gradient(135deg, #5C6BC0, #3949AB);
+}
+
+.love {
+    background: linear-gradient(135deg, #EC407A, #D81B60);
+}
+
+.chill {
+    background: linear-gradient(135deg, #26C6DA, #0097A7);
+}
+
+.workout {
+    background: linear-gradient(135deg, #66BB6A, #2E7D32);
+}
+
+.rain {
+    background: linear-gradient(135deg, #42A5F5, #1565C0);
+}
+
+.road {
+    background: linear-gradient(135deg, #8E24AA, #5E35B1);
+}
+
+.sleep {
+    background: linear-gradient(135deg, #607D8B, #37474F);
+}
+
+/* browse language */
+.language-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.language-btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: #101828;
+    color: #fff;
+    border: 1px solid #1f2937;
+    transition: .3s;
+}
+
+.language-btn:hover {
+    background: #0dcaf0;
+    color: #000;
+}
+
+/* playlist css */
+.playlist-card {
+    background: #101828;
+    padding: 18px;
+    border-radius: 18px;
+    transition: .3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.playlist-card .tri {
+    border-radius: 20rem;
+    background-color: #000;
+    color: rgb(30, 247, 30);
+    font-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    position: absolute;
+    opacity: 0;
+    transform: translate(150px, -50px);
+    transition: 0.4s ease;
+    z-index: 2;
+}
+
+.playlist-card:hover .tri {
+    opacity: 1;
+    transform: translate(155px, -55px);
+}
+
+.playlist-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(13, 202, 240, .4);
+}
+
+.playlist-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.playlist-card:hover img {
+    transform: scale(1.01);
+}
+
+.playlist-card p {
+    color: #9ca3af;
+}
+
+/* new releases */
+.release-card {
+    background: #101828;
+    padding: 15px;
+    border-radius: 18px;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.release-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(13, 202, 240, .4);
+}
+
+.release-card .h {
+    border-radius: 20rem;
+    background-color: #000;
+    color: rgb(30, 247, 30);
+    font-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    opacity: 0;
+    transform: translate(150px, -50px);
+    transition: 0.4s ease;
+    z-index: 2;
+}
+
+.release-card:hover .h {
+    opacity: 1;
+    transform: translate(155px, -55px);
+}
+
+.release-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.release-card:hover img {
+    transform: scale(1.01);
+}
+
+.release-card small {
+    color: #9ca3af;
+}
+
+/* top charts */
+.chart-list {
+    background: #101828;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.chart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px;
+    border-bottom: 1px solid #1f2937;
+    transition: .3s;
+}
+
+.chart-item:last-child {
+    border-bottom: none;
+}
+
+.chart-item:hover {
+    background: #182336;
+}
+
+.rank {
+    width: 35px;
+    font-weight: bold;
+    color: #0dcaf0;
+}
+
+.chart-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.chart-item div {
+    flex: 1;
+}
+
+.chart-item small {
+    color: #9ca3af;
+}
+
+.duration {
+    color: #9ca3af;
+}
+
+.chart-item i {
+    font-size: 24px;
+    color: #0dcaf0;
+    cursor: pointer;
+}
+
+main section {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    margin: 10px !important;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* =========================================
+   EXPLORE PAGE RESPONSIVE
+========================================= */
+/* Laptop - 1200px */
+@media (max-width:1200px) {
+
+    .music-card,
+    .release-card {
+        padding: 12px;
+    }
+
+    .category-card,
+    .mood-card {
+        height: 160px;
+    }
+
+    .playlist-card img,
+    .release-card img {
+        height: 180px;
+    }
+}
+
+/* Tablet - 992px */
+@media (max-width:767px) {
+    body {
+        overflow: auto;
+    }
+
+    #aside {
+        display: none;
+    }
+
+    #desktopMenu {
+        display: none;
+    }
+
+    #phone {
+        display: flex;
+    }
+
+    .main-section {
+        margin-left: 0;
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 120px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .category-card,
+    .mood-card {
+        height: 150px;
+    }
+
+    .playlist-card img,
+    .release-card img {
+        height: 170px;
+    }
+
+    .chart-item {
+        gap: 15px;
+    }
+}
+
+/* Mobile - 768px*/
+@media (max-width:768px) {
+
+    .category-card,
+    .mood-card {
+        height: 140px;
+    }
+
+    .category-card h5,
+    .mood-card h5 {
+        font-size: 18px;
+    }
+
+    .mood-card i {
+        font-size: 32px;
+    }
+
+    .playlist-card,
+    .release-card {
+        padding: 12px;
+    }
+
+    .playlist-card img,
+    .release-card img {
+        height: 150px;
+    }
+
+    .playlist-card .tri {
+        opacity: 0;
+        transform: translate(340px, -45px);
+    }
+
+    .playlist-card:hover .tri {
+        opacity: 1;
+        transform: translate(330px, -50px);
+    }
+
+    .release-card .h {
+        opacity: 0;
+        transform: translate(130px, -45px);
+    }
+
+    .release-card:hover .h {
+        opacity: 1;
+        transform: translate(125px, -50px);
+    }
+
+    .language-tags {
+        gap: 10px;
+    }
+
+    .language-btn {
+        padding: 10px 18px;
+        font-size: .9rem;
+    }
+
+    .chart-item {
+        display: grid;
+        grid-template-columns: 40px 55px 1fr;
+        gap: 12px;
+    }
+
+    .chart-item img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .duration,
+    .chart-item i {
+        grid-column: 3;
+    }
+}
+
+/* Small Mobile - 576px  */
+@media (max-width:576px) {
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    .category-card,
+    .mood-card {
+        height: 120px;
+    }
+
+    .category-card h5,
+    .mood-card h5 {
+        font-size: 16px;
+    }
+
+    .mood-card i {
+        font-size: 26px;
+    }
+
+    .playlist-card img,
+    .release-card img {
+        height: 140px;
+    }
+
+    .language-btn {
+        padding: 8px 15px;
+        font-size: .8rem;
+    }
+
+    .chart-item {
+        padding: 12px;
+    }
+
+    .chart-item h6 {
+        font-size: 15px;
+    }
+
+    .chart-item small {
+        font-size: 12px;
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width:400px) {
+
+    .category-card,
+    .mood-card {
+        height: 100px;
+    }
+
+    .playlist-card img,
+    .release-card img {
+        height: 120px;
+    }
+
+    .language-btn {
+        width: 100%;
+    }
+}

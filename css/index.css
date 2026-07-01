@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    /* background: url(../img/login-bg.jpg) center/cover no-repeat; */
+    background: #000;
+    font-family: "Ubuntu", sans-serif;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .72);
+    backdrop-filter: blur(3px);
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .08);
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 30px;
+    color: white;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #0dcaf0;
+    display: flex;
+}
+
+.logo img {
+    height: auto;
+    width: 100px;
+    position: relative;
+    transform: translateY(-15px);
+    mix-blend-mode: screen;
+}
+
+.logo h3 {
+    font-size: 2.5rem;
+}
+
+.glass-card h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.glass-card p {
+    font-size: 18px;
+    color: #d1d5db;
+    line-height: 1.8;
+}
+
+.btn-info {
+    font-weight: 600;
+}
+
+.hero-images {
+    position: relative;
+    height: 600px;
+}
+
+.floating-card {
+    position: absolute;
+    width: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 35px rgba(13, 202, 240, .35);
+    animation: float 5s ease-in-out infinite;
+}
+
+.floating-card img {
+    width: 100%;
+    display: block;
+}
+
+.card1 {
+    top: 40px;
+    left: 40px;
+}
+
+.card2 {
+    top: 200px;
+    right: 40px;
+    animation-delay: 1s;
+}
+
+.card3 {
+    bottom: 20px;
+    left: 120px;
+    animation-delay: 2s;
+}
+
+.card4 {
+    top: 20px;
+    right: 180px;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@media(max-width:991px) {
+    body {
+        overflow: auto;
+    }
+
+    .container {
+        padding: 40px 20px;
+        height: auto;
+    }
+
+    .glass-card {
+        padding: 35px;
+        text-align: center;
+    }
+
+    .glass-card h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-images {
+        margin-top: 60px;
+        height: 420px;
+    }
+
+    .floating-card {
+        width: 150px;
+    }
+
+    .card1 {
+        left: 10%;
+    }
+
+    .card2 {
+        right: 5%;
+    }
+
+    .card3 {
+        left: 30%;
+    }
+
+    .card4 {
+        display: none;
+    }
+}
+
+@media(max-width:576px) {
+    .glass-card {
+        padding: 25px;
+    }
+
+    .glass-card h1 {
+        font-size: 2rem;
+    }
+
+    .glass-card p {
+        font-size: 15px;
+    }
+
+    .logo {
+        font-size: 26px;
+    }
+
+    .hero-images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .floating-card {
+        position: static;
+        width: 130px;
+        animation: none;
+    }
+}

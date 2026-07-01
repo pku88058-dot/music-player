@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body,
+body * {
+    text-transform: capitalize;
+}
+
+.artist-hero {
+    position: relative;
+    background: url("../img/ar-2.jpg") center center/cover no-repeat;
+    min-height: 450px;
+    border-radius: 25px;
+    padding: 60px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.artist-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            rgba(0, 0, 0, .85) 0%,
+            rgba(0, 0, 0, .55) 45%,
+            rgba(0, 0, 0, .15) 100%);
+}
+
+.artist-content {
+    position: relative;
+    z-index: 2;
+    max-width: 550px;
+}
+
+.artist-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.artist-content p {
+    color: #d1d5db;
+    font-size: 1.1rem;
+    margin: 20px 0;
+}
+
+/* browse language */
+.language-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.language-btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: #101828;
+    color: #fff;
+    border: 1px solid #1f2937;
+    transition: .3s;
+}
+
+.language-btn:hover {
+    background: #0dcaf0;
+    color: #000;
+}
+
+/* artist grid */
+.artist-card {
+    background: #101828;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: .3s;
+}
+
+.artist-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(13, 202, 240, .35);
+}
+
+.artist-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.artist-card p {
+    color: #9ca3af;
+}
+
+/* top artist */
+.chart-list {
+    background: #101828;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.chart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px;
+    border-bottom: 1px solid #1f2937;
+    transition: .3s;
+}
+
+.chart-item:last-child {
+    border-bottom: none;
+}
+
+.chart-item:hover {
+    background: #182336;
+}
+
+.rank {
+    width: 35px;
+    font-weight: bold;
+    color: #0dcaf0;
+}
+
+.chart-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.chart-item div {
+    flex: 1;
+}
+
+.chart-item small {
+    color: #9ca3af;
+}
+
+.duration {
+    color: #9ca3af;
+}
+
+.chart-item i {
+    font-size: 24px;
+    color: #0dcaf0;
+    cursor: pointer;
+}
+
+/* stat card */
+.stat-card {
+    background: #101828;
+    padding: 30px;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(13, 202, 240, .3);
+}
+
+.stat-card h2 {
+    color: #0dcaf0;
+    font-weight: 700;
+}
+
+/* responsive css*/
+/* Large Tablets */
+@media (max-width: 992px) {
+    .artist-hero {
+        min-height: 400px;
+        padding: 40px;
+        background-position: center right;
+    }
+
+    .artist-content {
+        max-width: 450px;
+    }
+
+    .artist-content h1 {
+        font-size: 3rem;
+    }
+
+    .artist-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .artist-hero {
+        min-height: 350px;
+        padding: 30px;
+        background-position: 65% center;
+    }
+
+    .artist-hero::before {
+        background: rgba(0, 0, 0, .65);
+    }
+
+    .artist-content {
+        max-width: 100%;
+    }
+
+    .artist-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .artist-content p {
+        font-size: .95rem;
+    }
+
+    .artist-content .btn {
+        padding: 8px 22px;
+        font-size: .9rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .artist-hero {
+        min-height: 500px;
+        padding: 25px;
+        align-items: flex-end;
+        background-position: center;
+    }
+
+    .artist-hero::before {
+        background: linear-gradient(to top,
+                rgba(0, 0, 0, .95),
+                rgba(0, 0, 0, .55),
+                rgba(0, 0, 0, .15));
+    }
+
+    .artist-content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .artist-content h1 {
+        font-size: 2rem;
+    }
+
+    .artist-content p {
+        font-size: .9rem;
+        margin: 15px 0;
+    }
+
+    .artist-content .d-flex {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+/* Extra Small Phones */
+@media (max-width: 400px) {
+    .artist-hero {
+        min-height: 450px;
+        padding: 20px;
+    }
+
+    .artist-content h1 {
+        font-size: 1.7rem;
+    }
+
+    .artist-content p {
+        font-size: .85rem;
+    }
+
+    .artist-content .btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albums</title>
+    <link rel="icon" type="img/album.png" href="img/album.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/explore.css">
+    <link rel="stylesheet" href="css/artists.css">
+    <link rel="stylesheet" href="css/album.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row g-0">
+            <!-- ================= SIDEBAR ================= -->
+            <aside class="col-lg-2 sidebar p-4" id="aside">
+                <div class="logo text-center mb-4">
+                    <img src="img/l.png" alt="" class="img-fluid">
+                    <h3 class="text-info fw-bold">PM Waves</h3>
+                    <p class="small text-secondary">Music Gallery</p>
+                </div>
+                <div class="sidebar-scroll">
+                    <hr>
+                    <ul class="list-unstyled ab">
+                        <li class="p-2"><i class="fa-regular fa-house me-2"></i><a href="home.html"
+                                class="text-secondary text-decoration-none">Home</a></li>
+                        <li class="p-2"><i class="fa-solid fa-magnifying-glass me-2"></i><a href="explore.html"
+                                class="text-secondary text-decoration-none">Explore</a></li>
+                        <li class="p-2"><i class="fa-regular fa-user me-2"></i><a href="artists.html"
+                                class="text-secondary text-decoration-none">Artists</a></li>
+                        <li class="p-2"><i class="fa-solid fa-compact-disc me-2"></i><a href="albums.html"
+                                class="text-secondary text-decoration-none">Albums</a></li>
+                        <li class="p-2"><i class="fa-solid fa-list me-2"></i><a href="#"
+                                class="text-secondary text-decoration-none">Playlist</a></li>
+                        <li class="p-2"><i class="fa-solid fa-chart-simple me-2"></i><a href="#"
+                                class="text-secondary text-decoration-none">Top Charts</a></li>
+                        <li class="p-2"><i class="fa-solid fa-radio me-2"></i><a href="#"
+                                class="text-secondary text-decoration-none">Radio</a></li>
+                    </ul>
+                    <hr>
+                    <h6 class="text-secondary">Your Library</h6>
+                    <ul class="list-unstyled cd">
+                        <li class="p-2"><i class="fa-regular fa-heart me-2"></i><a href="#"
+                                class="text-secondary text-decoration-none">Liked Songs</a></li>
+                        <li class="p-2"><i class="fa-regular fa-clock me-2"></i><a href="#"
+                                class="text-secondary text-decoration-none">Recently Played</a></li>
+                        <li class="p-2"><i class="fa-regular fa-bookmark me-2"></i><a href="#"
+                                class="text-secondary text-decoration-none">Saved Albums</a></li>
+                        <li class="p-2"><i class="fa-solid fa-list me-2"></i><a href="#"
+                                class="text-secondary text-decoration-none">My Playlist</a></li>
+                    </ul>
+                    <button class="btn btn-outline-info w-100 mt-3">
+                        <i class="fa-solid fa-plus"></i>
+                        Create Playlist
+                    </button>
+                </div>
+            </aside>
+            <!-- ================= MAIN CONTENT ================= -->
+            <main class="col-12 col-lg-10 main-section overflow-y-auto">
+                <!-- Desktop Navbar -->
+                <nav class="navbar navbar-expand-lg py-3 px-3" id="desktopMenu">
+                    <div class="container-fluid">
+                        <form class="d-flex flex-grow-1 me-4">
+                            <div class="position-relative w-100">
+                                <input type="search" class="form-control bg-transparent text-white rounded-pill pe-5"
+                                    placeholder="Search songs, artists, albums">
+                                <i
+                                    class="fa-solid fa-magnifying-glass position-absolute top-50 end-0 translate-middle-y me-3"></i>
+                            </div>
+                        </form>
+                        <ul class="navbar-nav ms-auto flex-row gap-3">
+                            <li class="nav-item"><a href="home.html" class="nav-link text-white">Home</a></li>
+                            <li class="nav-item"><a href="explore.html" class="nav-link text-white">Explore</a></li>
+                            <li class="nav-item"><a href="artists.html" class="nav-link text-white">Artists</a></li>
+                            <li class="nav-item"><a href="albums.html" class="nav-link text-white">Albums</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- Mobile Navbar -->
+                <nav class="navbar navbar-dark bg-black sticky-top px-3" id="phone">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#mobileMenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <span class="navbar-brand text-info fw-bold">
+                        PM Waves
+                    </span>
+                </nav>
+                <!-- Mobile Offcanvas Menu -->
+                <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="mobileMenu">
+                    <div class="offcanvas-header">
+                        <div>
+                            <h4 class="text-info fw-bold mb-0">
+                                PM Waves
+                            </h4>
+                            <small class="text-secondary">
+                                Music Gallery
+                            </small>
+                        </div>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas">
+                        </button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <!-- Search -->
+                        <div class="mb-4">
+                            <div class="position-relative">
+                                <input type="search" class="form-control bg-transparent text-white pe-5"
+                                    placeholder="Search music...">
+                                <i class="fa-solid fa-magnifying-glass
+                          position-absolute
+                          top-50
+                          end-0
+                          translate-middle-y
+                          me-3">
+                                </i>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- Navigation -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item p-2">
+                                <i class="fa-regular fa-house me-2"></i>
+                                <a href="home.html" class="text-decoration-none text-white">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item p-2">
+                                <i class="fa-solid fa-compass me-2"></i>
+                                <a href="explore.html" class="text-decoration-none text-white">
+                                    Explore
+                                </a>
+                            </li>
+                            <li class="nav-item p-2">
+                                <i class="fa-regular fa-user me-2"></i>
+                                <a href="artists.html" class="text-decoration-none text-white">
+                                    Artists
+                                </a>
+                            </li>
+                            <li class="nav-item p-2">
+                                <i class="fa-solid fa-compact-disc me-2"></i>
+                                <a href="albums.html" class="text-decoration-none text-white">
+                                    Albums
+                                </a>
+                            </li>
+                            <li class="nav-item p-2">
+                                <i class="fa-solid fa-list me-2"></i>
+                                <a href="#" class="text-decoration-none text-white">
+                                    Playlist
+                                </a>
+                            </li>
+                            <li class="nav-item p-2">
+                                <i class="fa-solid fa-chart-simple me-2"></i>
+                                <a href="#" class="text-decoration-none text-white">
+                                    Top Charts
+                                </a>
+                            </li>
+                            <li class="nav-item p-2">
+                                <i class="fa-solid fa-radio me-2"></i>
+                                <a href="#" class="text-decoration-none text-white">
+                                    Radio
+                                </a>
+                            </li>
+                        </ul>
+                        <hr>
+                        <!-- Library -->
+                        <h6 class="text-secondary mb-3">
+                            Your Library
+                        </h6>
+                        <ul class="navbar-nav">
+                            <li class="nav-item p-2">
+                                <i class="fa-regular fa-heart me-2"></i>
+                                <a href="#" class="text-decoration-none text-white">
+                                    Liked Songs
+                                </a>
+                            </li>
+                            <li class="nav-item p-2">
+                                <i class="fa-regular fa-clock me-2"></i>
+                                <a href="#" class="text-decoration-none text-white">
+                                    Recently Played
+                                </a>
+                            </li>
+                            <li class="nav-item p-2">
+                                <i class="fa-regular fa-bookmark me-2"></i>
+                                <a href="#" class="text-decoration-none text-white">
+                                    Saved Albums
+                                </a>
+                            </li>
+                            <li class="nav-item p-2">
+                                <i class="fa-solid fa-list me-2"></i>
+                                <a href="#" class="text-decoration-none text-white">
+                                    My Playlist
+                                </a>
+                            </li>
+                        </ul>
+                        <button class="btn btn-outline-info w-100 mt-4">
+                            <i class="fa-solid fa-plus me-2"></i>
+                            Create Playlist
+                        </button>
+                    </div>
+                </div>
+                <!--album-hero section -->
+                <section class="album-hero m-3">
+                    <div class="album-overlay">
+                        <span class="badge bg-info text-dark mb-3">
+                            Album of the Week
+                        </span>
+                        <h1>Phir Se (From "Dhurandhar The Revenge") - Single</h1>
+                        <p>
+                            Arijit Singh
+                        </p>
+                        <div class="mt-4">
+                            <button class="btn btn-info rounded-pill px-4 me-2">
+                                <i class="fa-solid fa-play me-2"></i>
+                                Play Album
+                            </button>
+                            <button class="btn btn-outline-light rounded-pill px-4">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <!-- Album Categories -->
+                <section class="m-4 px-3">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="mb-4">Browse by Category</h3>
+                        <a href="#" class="text-info text-decoration-none">
+                            View All
+                        </a>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="album-category romantic">
+                                <i class="fa-solid fa-heart"></i>
+                                <h5>Romantic</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="album-category bollywood">
+                                <i class="fa-solid fa-film"></i>
+                                <h5>Bollywood</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="album-category party">
+                                <i class="fa-solid fa-music"></i>
+                                <h5>Party</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="album-category lofi">
+                                <i class="fa-solid fa-mug-hot"></i>
+                                <h5>Lo-Fi</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="album-category rock">
+                                <i class="fa-solid fa-guitar"></i>
+                                <h5>Rock</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="album-category devotional">
+                                <i class="fa-solid fa-om"></i>
+                                <h5>Devotional</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="album-category indie">
+                                <i class="fa-solid fa-compact-disc"></i>
+                                <h5>Indie</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="album-category retro">
+                                <i class="fa-solid fa-record-vinyl"></i>
+                                <h5>Retro</h5>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Latest Albums -->
+                <section class="m-4 px-3">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3>Latest Albums</h3>
+                        <a href="#" class="text-info text-decoration-none">
+                            View All
+                        </a>
+                    </div>
+                    <div class="row g-4">
+                        <!-- Album -->
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="latest-album-card">
+                                <div class="album-cover">
+                                    <img src="img/al1.jpg" class="img-fluid">
+                                    <button class="play-album-btn">
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>
+                                </div>
+                                <h5 class="mt-3">dhurandhar</h5>
+                                <p>various artists</p>
+                                <small>2026 • 12 Songs</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="latest-album-card">
+                                <div class="album-cover">
+                                    <img src="img/hero-4.jpg" class="img-fluid">
+                                    <button class="play-album-btn">
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>
+                                </div>
+                                <h5 class="mt-3">skyforce</h5>
+                                <p>various artists</p>
+                                <small>2025 • 5 Songs</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="latest-album-card">
+                                <div class="album-cover">
+                                    <img src="img/hero-3.jpg" class="img-fluid">
+                                    <button class="play-album-btn">
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>
+                                </div>
+                                <h5 class="mt-3">saiyaara</h5>
+                                <p>Various Artists</p>
+                                <small>2025 • 5 Songs</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="latest-album-card">
+                                <div class="album-cover">
+                                    <img src="img/al-2.jpg" class="img-fluid">
+                                    <button class="play-album-btn">
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>
+                                </div>
+                                <h5 class="mt-3">Ashiqui 2</h5>
+                                <p>Various Artists</p>
+                                <small>2015 • 10 Songs</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Popular Albums -->
+                <section class="px-3 m-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3>Popular Albums</h3>
+                        <a href="#" class="text-info text-decoration-none">
+                            View All
+                        </a>
+                    </div>
+                    <div class="popular-album-slider">
+                        <div class="popular-album-card">
+                            <img src="img/s1.png">
+                            <h6>the last letter</h6>
+                        </div>
+                        <div class="popular-album-card">
+                            <img src="img/s2.png">
+                            <h6>arz kiya hai</h6>
+                        </div>
+                        <div class="popular-album-card">
+                            <img src="img/s3.png">
+                            <h6>khat</h6>
+                        </div>
+                        <div class="popular-album-card">
+                            <img src="img/s4.png">
+                            <h6>ishq</h6>
+                        </div>
+                        <div class="popular-album-card">
+                            <img src="img/s12.jpg">
+                            <h6>tere ishq main</h6>
+                        </div>
+                        <div class="popular-album-card">
+                            <img src="img/s11.jpg">
+                            <h6>tere ishq main</h6>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+    <!-- Bottom Music Player -->
+    <footer class="fixed-bottom bg-dark border-top border-secondary">
+        <div class="container-fluid py-2">
+            <div class="row align-items-center">
+                <div class="col-md-3 d-flex align-items-center">
+                    <img src="img/s10.png" width="55" height="55" class="rounded me-3">
+                    <div>
+                        <h6 class="mb-0">tu hain toh main hoon</h6>
+                        <small class="text-secondary">
+                            Tanishk Bagchi, Arijit Singh, Afsana Khan, Irshad Kamil
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
+                    <div class="mb-2 text-center">
+                        <i id="shuffle" class="fa-solid fa-shuffle mx-2"></i>
+                        <i id="backward" class="fa-solid fa-backward-step mx-2"></i>
+                        <i id="play" class="fa-solid fa-circle-play fs-2 mx-2"></i>
+                        <i id="forward" class="fa-solid fa-forward-step mx-2"></i>
+                        <i id="repeat" class="fa-solid fa-repeat mx-2"></i>
+                    </div>
+                    <div class="w-100 justify-content-center pro">
+                        <input type="range" id="progressbar" class="form-range w-100" value="0">
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+body {
+    background: url("../img/login-bg.jpg") center/cover no-repeat;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .75);
+    backdrop-filter: blur(4px);
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .08);
+    backdrop-filter: blur(20px);
+    padding: 45px;
+    border-radius: 25px;
+    color: white;
+}
+
+.logo {
+    color: #0dcaf0;
+    font-weight: 700;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .1);
+    color: white;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, .08);
+    color: white;
+    border-color: #0dcaf0;
+    box-shadow: none;
+}
+
+.form-control::placeholder {
+    color: #bfbfbf;
+}
+
+.btn-info {
+    font-weight: 600;
+}
+
+.input-group button {
+    border-color: #444;
+    color: white;
+}
+
+.input-group button:hover {
+    background: #0dcaf0;
+    color: black;
+}
+
+@media(max-width:576px) {
+    .auth-card {
+        padding: 30px 20px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+}
