@@ -4,7 +4,7 @@ A sleek, responsive, and modern web-based music player frontend built using vani
 
 ## 📱 Live Preview
 
-[![music-player](image.png)](https://pku88058-dot.github.io/music-player/)
+[![music-player](img/image.png)](https://pku88058-dot.github.io/music-player/)
 
 *Click on the image above to open the live interactive application.*
 
