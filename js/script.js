@@ -23,4 +23,28 @@ audio.addEventListener('timeupdate', () => {
 progressbar.addEventListener('input', function () {
     let value = this.value;
     this.style.background = `linear-gradient(to right, #1aff05 ${value}%, #333 ${value}%)`;
+    audio.currentTime = (progressbar.value * audio.duration) / 100;
+})
+
+let playMusic = Array.from(document.getElementsByClassName('playMusic'));
+makeAllPlay = () => {
+    playMusic.forEach((element) => {
+        element.classList.remove('fa-circle-pause');
+        element.classList.add('fa-circle-play');
+
+    })
+}
+playMusic.forEach((element) => {
+    element.addEventListener('click', (e) => {
+        makeAllPlay();
+        e.target.classList.remove('fa-circle-play');
+        e.target.classList.add('fa-circle-pause');
+        play.classList.remove('fa-circle-play');
+        play.classList.add('fa-circle-pause');
+
+        index = parseInt(e.target.id);
+        audio.src = `Audio/${index}.mp3`;
+        audio.currentTime = 0;
+        audio.play();
+    })
 })

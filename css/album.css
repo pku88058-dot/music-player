@@ -3,6 +3,7 @@
 body,
 body * {
     text-transform: capitalize;
+    overflow: hidden;
 }
 
 .album-hero {
@@ -90,33 +91,6 @@ body * {
     background: linear-gradient(135deg, #f4a261, #e76f51);
 }
 
-@media(max-width:768px) {
-    .album-category {
-        height: 140px;
-    }
-
-    .album-category i {
-        font-size: 34px;
-    }
-
-    .album-category h5 {
-        font-size: 18px;
-    }
-}
-
-@media(max-width:576px) {
-    .album-category {
-        height: 120px;
-    }
-
-    .album-category i {
-        font-size: 28px;
-    }
-
-    .album-category h5 {
-        font-size: 16px;
-    }
-}
 
 /* ==========================
    LATEST ALBUMS
@@ -243,6 +217,18 @@ body * {
 }
 
 @media(max-width:768px) {
+    .album-category {
+        height: 140px;
+    }
+
+    .album-category i {
+        font-size: 34px;
+    }
+
+    .album-category h5 {
+        font-size: 18px;
+    }
+
     .album-cover img {
         height: 180px;
     }
@@ -261,6 +247,18 @@ body * {
 }
 
 @media(max-width:576px) {
+    .album-category {
+        height: 120px;
+    }
+
+    .album-category i {
+        font-size: 28px;
+    }
+
+    .album-category h5 {
+        font-size: 16px;
+    }
+
     .album-cover img {
         height: 160px;
     }

@@ -8,11 +8,9 @@
 
 body {
     height: 100vh;
-    /* background: url(../img/login-bg.jpg) center/cover no-repeat; */
     background: #000;
     font-family: "Ubuntu", sans-serif;
     position: relative;
-    /* overflow: hidden; */
 }
 
 .overlay {
