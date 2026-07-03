@@ -2,6 +2,25 @@ let play = document.getElementById('play');
 let progressbar = document.getElementById('progressbar');
 let audio = new Audio('audio/10.mp3');
 
+const updateProgressUI = (value = 0) => {
+    if (!progressbar) return;
+    progressbar.value = value;
+    progressbar.style.background = `linear-gradient(to right, #1aff05 ${value}%, #333 ${value}%)`;
+};
+
+const safeUpdateProgress = () => {
+    if (!progressbar) return;
+
+    const duration = audio.duration;
+    if (!duration || !isFinite(duration) || duration === 0) {
+        updateProgressUI(0);
+        return;
+    }
+
+    const progress = (audio.currentTime / duration) * 100;
+    updateProgressUI(progress);
+};
+
 if (play && progressbar) {
     play.addEventListener('click', () => {
         if (audio.paused || audio.currentTime == 0) {
@@ -15,16 +34,16 @@ if (play && progressbar) {
         }
     });
 
-    audio.addEventListener('timeupdate', () => {
-        let progress = (audio.currentTime / audio.duration) * 100;
-        progressbar.value = progress;
-        progressbar.style.background = `linear-gradient(to right, #1aff05 ${progress}%, #333 ${progress}%)`;
-    });
+    audio.addEventListener('timeupdate', safeUpdateProgress);
+    audio.addEventListener('loadedmetadata', () => updateProgressUI(0));
 
     progressbar.addEventListener('input', function () {
-        let value = this.value;
+        const duration = audio.duration;
+        if (!duration || !isFinite(duration) || duration === 0) return;
+
+        const value = this.value;
         this.style.background = `linear-gradient(to right, #1aff05 ${value}%, #333 ${value}%)`;
-        audio.currentTime = (progressbar.value * audio.duration) / 100;
+        audio.currentTime = (value * duration) / 100;
     });
 }
 
@@ -48,9 +67,10 @@ playMusic.forEach((element) => {
             play.classList.add('fa-circle-pause');
         }
 
-        let index = parseInt(e.target.id);
+        const index = parseInt(e.target.id, 10);
         audio.src = `audio/${index}.mp3`;
         audio.currentTime = 0;
+        updateProgressUI(0);
         audio.play();
     });
 });
