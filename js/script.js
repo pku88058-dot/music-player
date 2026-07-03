@@ -1,6 +1,6 @@
 let play = document.getElementById('play');
 let progressbar = document.getElementById('progressbar');
-let audio = new Audio('music-player/audio/10.mp3');
+let audio = new Audio('audio/10.mp3');
 
 play.addEventListener('click', () => {
     if (audio.paused || audio.currentTime == 0) {
@@ -44,7 +44,7 @@ playMusic.forEach((element) => {
 
 
         let index = parseInt(e.target.id);
-        audio.src = `music-player/audio/${index}.mp3`;
+        audio.src = `audio/${index}.mp3`;
         audio.currentTime = 0;
         audio.play();
     })
