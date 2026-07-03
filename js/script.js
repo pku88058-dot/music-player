@@ -42,8 +42,9 @@ playMusic.forEach((element) => {
         play.classList.remove('fa-circle-play');
         play.classList.add('fa-circle-pause');
 
-        index = parseInt(e.target.id);
-        audio.src = `Audio/${index}.mp3`;
+
+        let index = parseInt(e.target.id);
+        audio.src = `/audio/${index}.mp3`;
         audio.currentTime = 0;
         audio.play();
     })

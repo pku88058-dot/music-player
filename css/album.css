@@ -3,7 +3,6 @@
 body,
 body * {
     text-transform: capitalize;
-    overflow: hidden;
 }
 
 .album-hero {
