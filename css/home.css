@@ -562,4 +562,25 @@ footer i:hover {
     h3 {
         font-size: 1.3rem;
     }
+
+    .music-card .tri {
+        transform: translate(85px, -45px);
+        opacity: 0;
+    }
+
+    .music-card:hover .tri {
+        opacity: 1;
+        transform: translate(90px, -50px);
+    }
+
+    .music-card .h {
+        transform: translate(160px, -40px);
+        opacity: 0;
+    }
+
+    .music-card:hover .h {
+        opacity: 1;
+        transform: translate(165px, -45px);
+    }
+
 }
