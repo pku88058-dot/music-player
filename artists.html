@@ -36,15 +36,12 @@
                                 class="text-secondary text-decoration-none">Albums</a></li>
                         <li class="p-2"><i class="fa-solid fa-list me-2"></i><a href="#"
                                 class="text-secondary text-decoration-none">Playlist</a></li>
-                        <li class="p-2"><i class="fa-solid fa-chart-simple me-2"></i><a href="#"
-                                class="text-secondary text-decoration-none">Top Charts</a></li>
-                        <li class="p-2"><i class="fa-solid fa-radio me-2"></i><a href="#"
-                                class="text-secondary text-decoration-none">Radio</a></li>
+
                     </ul>
                     <hr>
                     <h6 class="text-secondary">Your Library</h6>
                     <ul class="list-unstyled cd">
-                        <li class="p-2"><i class="fa-regular fa-heart me-2"></i><a href="#"
+                        <li class="p-2"><i class="fa-regular fa-heart me-2"></i><a href="liked-song.html"
                                 class="text-secondary text-decoration-none">Liked Songs</a></li>
                         <li class="p-2"><i class="fa-regular fa-clock me-2"></i><a href="#"
                                 class="text-secondary text-decoration-none">Recently Played</a></li>
@@ -152,18 +149,7 @@
                                     Playlist
                                 </a>
                             </li>
-                            <li class="nav-item p-2">
-                                <i class="fa-solid fa-chart-simple me-2"></i>
-                                <a href="#" class="text-decoration-none text-white">
-                                    Top Charts
-                                </a>
-                            </li>
-                            <li class="nav-item p-2">
-                                <i class="fa-solid fa-radio me-2"></i>
-                                <a href="#" class="text-decoration-none text-white">
-                                    Radio
-                                </a>
-                            </li>
+
                         </ul>
                         <hr>
                         <!-- Library -->
@@ -173,7 +159,7 @@
                         <ul class="navbar-nav">
                             <li class="nav-item p-2">
                                 <i class="fa-regular fa-heart me-2"></i>
-                                <a href="#" class="text-decoration-none text-white">
+                                <a href="liked-song.html" class="text-decoration-none text-white">
                                     Liked Songs
                                 </a>
                             </li>
@@ -461,12 +447,10 @@
         <div class="container-fluid py-2">
             <div class="row align-items-center">
                 <div class="col-md-3 d-flex align-items-center">
-                    <img src="img/s10.png" width="55" height="55" class="rounded me-3">
+                    <img id="playerArtwork" src="img/s10.png" width="55" height="55" class="rounded me-3">
                     <div>
-                        <h6 class="mb-0">tu hain toh main hoon</h6>
-                        <small class="text-secondary">
-                            Tanishk Bagchi, Arijit Singh, Afsana Khan, Irshad Kamil
-                        </small>
+                        <h6 id="playerTitle" class="mb-0">tu hain toh main hoon</h6>
+                        <small id="playerArtist" class="text-secondary">Arijit Singh</small>
                     </div>
                 </div>
                 <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
