@@ -11,7 +11,8 @@ let playerTitle = $("playerTitle");
 let playerArtist = $("playerArtist");
 let playerArtwork = $("playerArtwork");
 
-let audio = new Audio("audio/10.mp3");
+const resolveAssetUrl = (path) => new URL(path, window.location.href).toString();
+let audio = new Audio(resolveAssetUrl("audio/10.mp3"));
 let currentSong = 10;
 let playMusic = [...document.getElementsByClassName("playMusic")];
 let playlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -113,7 +114,7 @@ const updatePlayerInfo = (trackId) => {
 
     playerTitle && (playerTitle.textContent = info.title);
     playerArtist && (playerArtist.textContent = info.artist);
-    playerArtwork && (playerArtwork.src = info.image);
+    playerArtwork && (playerArtwork.src = resolveAssetUrl(info.image));
 };
 
 const setPlayButtonState = (playing) => {
@@ -162,7 +163,7 @@ const loadPlayerState = () => {
 
         updatePlayerInfo(currentSong);
 
-        audio.src = `audio/${currentSong}.mp3`;
+        audio.src = resolveAssetUrl(`audio/${currentSong}.mp3`);
         audio.currentTime = Number(state.currentTime) || 0;
 
         setPlayButtonState(state.isPlaying);
@@ -193,7 +194,7 @@ const playTrack = (trackId = currentSong) => {
 
     updatePlayerInfo(trackId);
 
-    audio.src = `audio/${trackId}.mp3`;
+    audio.src = resolveAssetUrl(`audio/${trackId}.mp3`);
     audio.currentTime = 0;
 
     updateProgressUI();
@@ -349,12 +350,19 @@ window.addEventListener("beforeunload", savePlayerState);
 window.addEventListener("pagehide", savePlayerState);
 
 // ===================== START PLAYER =====================
-loadPlayerState();
+const initializePlayer = () => {
+    loadPlayerState();
 
-// If there is no saved state, initialize the player.
-if (!savedState) {
-    updatePlayerInfo(currentSong);
-    setPlayButtonState(false);
-    setActiveTrackIcon(currentSong);
-    updateProgressUI(0);
+    if (!savedState) {
+        updatePlayerInfo(currentSong);
+        setPlayButtonState(false);
+        setActiveTrackIcon(currentSong);
+        updateProgressUI(0);
+    }
+};
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializePlayer);
+} else {
+    initializePlayer();
 }
