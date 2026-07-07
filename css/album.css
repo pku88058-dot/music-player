@@ -166,6 +166,10 @@ body * {
     cursor: pointer;
 }
 
+.popular-album-card:hover .popular-play-btn {
+    opacity: 1;
+}
+
 .popular-album-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 0 20px rgba(13, 202, 240, .35);

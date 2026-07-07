@@ -1,4 +1,4 @@
-# 🎵 MelodyStream
+# 🎵PM wave Music player
 
 A sleek, responsive, and modern web-based music player frontend built using vanilla web technologies. This application provides a seamless user interface for discovering, playing, and managing music tracks with responsive layouts and intuitive controls.
 

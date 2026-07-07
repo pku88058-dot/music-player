@@ -15,7 +15,7 @@ const resolveAssetUrl = (path) => new URL(path, window.location.href).toString()
 let audio = new Audio(resolveAssetUrl("audio/10.mp3"));
 let currentSong = 10;
 let playMusic = [...document.getElementsByClassName("playMusic")];
-let playlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+let playlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
 let isShuffle = false;
 let isRepeat = false;
@@ -84,6 +84,16 @@ const trackInfo = {
         title: "tere ishq main",
         artist: "A.R. Rahman and Arijit Singh",
         image: "img/s12.jpg"
+    },
+    13: {
+        title: "tujhko",
+        artist: "Arijit Singh",
+        image: "img/al5.jpg"
+    },
+    14: {
+        title: "humesha",
+        artist: "pritam",
+        image: "img/al5.jpg"
     }
 };
 
