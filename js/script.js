@@ -15,13 +15,14 @@ const resolveAssetUrl = (path) => new URL(path, window.location.href).toString()
 let audio = new Audio(resolveAssetUrl("audio/10.mp3"));
 let currentSong = 10;
 let playMusic = [...document.getElementsByClassName("playMusic")];
-let playlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+let playlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
 let isShuffle = false;
 let isRepeat = false;
 let savedState = null;
 
 const storageKey = "musicPlayerState";
+const authStorageKey = "musicPlayerAuthenticated";
 
 // ===================== TRACK DETAILS =====================
 const trackInfo = {
@@ -91,10 +92,41 @@ const trackInfo = {
         image: "img/al5.jpg"
     },
     14: {
+        title: "Aaj bhi",
+        artist: "Vishal Mishra ",
+        image: "img/s14.jpg"
+    },
+    15: {
         title: "humesha",
         artist: "pritam",
         image: "img/al5.jpg"
+    },
+    16: {
+        title: "Mann Mera",
+        artist: "Gajendra Verma",
+        image: "img/s16.jpg"
+    },
+    17: {
+        title: "Tumse Mohabbat Hai",
+        artist: "JalRaj",
+        image: "img/s17.jpg"
+    },
+    18: {
+        title: "Ore Mon Udashi",
+        artist: "Arijit singh",
+        image: "img/s18.jpg"
+    },
+    19: {
+        title: "kono rupkothar deshe",
+        artist: "arijit singh",
+        image: "img/s19.jpg"
+    },
+    20: {
+        title: "Tumi Jantei Paro Naa",
+        artist: " Mahtim Shakib",
+        image: "img/s20.jpg"
     }
+
 };
 
 // ===================== UI FUNCTIONS =====================
@@ -161,6 +193,26 @@ const savePlayerState = () => {
     }
 };
 
+const isUserAuthenticated = () => localStorage.getItem(authStorageKey) === "true";
+
+const ensureAuthenticatedPlayback = (showRedirect = true) => {
+    if (isUserAuthenticated()) return true;
+
+    audio.pause();
+    setPlayButtonState(false);
+    updateProgressUI(0);
+
+    if (showRedirect) {
+        const isSignupPage = window.location.pathname.toLowerCase().endsWith("signup.html");
+        if (!isSignupPage) {
+            alert("Please sign up first to play music.");
+            window.location.href = "signup.html";
+        }
+    }
+
+    return false;
+};
+
 const loadPlayerState = () => {
     try {
         const state = JSON.parse(localStorage.getItem(storageKey));
@@ -184,7 +236,7 @@ const loadPlayerState = () => {
         if (repeat)
             repeat.style.color = isRepeat ? "#1aff05" : "#fff";
 
-        if (state.isPlaying)
+        if (state.isPlaying && ensureAuthenticatedPlayback(false))
             audio.play().catch(() => { });
 
         return state;
@@ -199,6 +251,7 @@ const loadPlayerState = () => {
 const getTrackIds = () => playlist;
 
 const playTrack = (trackId = currentSong) => {
+    if (!ensureAuthenticatedPlayback()) return;
 
     currentSong = trackId;
 
@@ -220,6 +273,7 @@ const playTrack = (trackId = currentSong) => {
 if (play && progressbar) {
 
     play.addEventListener("click", () => {
+        if (!ensureAuthenticatedPlayback()) return;
 
         if (audio.paused || audio.currentTime === 0) {
             audio.play().catch(() => { });

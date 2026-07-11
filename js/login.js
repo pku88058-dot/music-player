@@ -1,3 +1,10 @@
+const authStorageKey = "musicPlayerAuthenticated";
+
+const setAuthenticatedUser = (redirectPage = "home.html") => {
+    localStorage.setItem(authStorageKey, "true");
+    window.location.href = redirectPage;
+};
+
 // Toggle Password
 const password = document.getElementById("password");
 const togglePassword = document.getElementById("togglePassword");
@@ -31,7 +38,7 @@ const loginForm = document.getElementById("loginForm");
 if (loginForm) {
     loginForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        window.location.href = "home.html";
+        setAuthenticatedUser("home.html");
     });
 }
 // Signup Redirect
