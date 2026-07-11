@@ -29,7 +29,7 @@ A sleek, responsive, and modern web-based music player frontend built using vani
 ```text
 ├── img/             # Album art and visual assets
 ├── css/             # Custom stylesheets complementing Bootstrap
-├── js/              # JavaScript logic (audio APIs, DOM manipulation)
+├── js/              # JavaScript logic (DOM manipulation)
 ├── html/            # HTML structural files
 └── README.md        # Project documentation
 ```
