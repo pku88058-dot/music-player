@@ -1,6 +1,5 @@
 // ===================== ELEMENTS =====================
 const $ = (id) => document.getElementById(id);
-
 let play = $("play");
 let forward = $("forward");
 let backward = $("backward");
@@ -10,26 +9,22 @@ let progressbar = $("progressbar");
 let playerTitle = $("playerTitle");
 let playerArtist = $("playerArtist");
 let playerArtwork = $("playerArtwork");
-
 const resolveAssetUrl = (path) => new URL(path, window.location.href).toString();
 let audio = new Audio(resolveAssetUrl("audio/10.mp3"));
 let currentSong = 10;
 let playMusic = [...document.getElementsByClassName("playMusic")];
 let playlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-
 let isShuffle = false;
 let isRepeat = false;
 let savedState = null;
-
 const storageKey = "musicPlayerState";
 const authStorageKey = "musicPlayerAuthenticated";
-
 // ===================== TRACK DETAILS =====================
 const trackInfo = {
     1: {
-        title: "the last letter",
-        artist: "maan pannu",
-        image: "img/s1.png"
+        title: "ve junoon",
+        artist: "Mithoon, Sayeed Quadri",
+        image: "img/s1.jpg"
     },
     2: {
         title: "arz kiya hai",
@@ -102,8 +97,8 @@ const trackInfo = {
         image: "img/al5.jpg"
     },
     16: {
-        title: "Mann Mera",
-        artist: "Gajendra Verma",
+        title: "Bandeya",
+        artist: "Arijit Singh",
         image: "img/s16.jpg"
     },
     17: {
@@ -126,46 +121,34 @@ const trackInfo = {
         artist: " Mahtim Shakib",
         image: "img/s20.jpg"
     }
-
 };
-
 // ===================== UI FUNCTIONS =====================
 const updateProgressUI = (value = 0) => {
     if (!progressbar) return;
-
     progressbar.value = value;
     progressbar.style.background =
         `linear-gradient(to right,#1aff05 ${value}%,#333 ${value}%)`;
 };
-
 const safeUpdateProgress = () => {
     if (!progressbar) return;
-
     const duration = audio.duration;
-
     if (!duration || !isFinite(duration)) {
         updateProgressUI();
         return;
     }
-
     updateProgressUI((audio.currentTime / duration) * 100);
 };
-
 const updatePlayerInfo = (trackId) => {
     const info = trackInfo[trackId] || trackInfo[10];
-
     playerTitle && (playerTitle.textContent = info.title);
     playerArtist && (playerArtist.textContent = info.artist);
     playerArtwork && (playerArtwork.src = resolveAssetUrl(info.image));
 };
-
 const setPlayButtonState = (playing) => {
     if (!play) return;
-
     play.classList.toggle("fa-circle-pause", playing);
     play.classList.toggle("fa-circle-play", !playing);
 };
-
 const setActiveTrackIcon = (trackId) => {
     playMusic.forEach(btn => {
         btn.classList.remove("fa-circle-play", "fa-circle-pause");
@@ -186,22 +169,17 @@ const savePlayerState = () => {
             isShuffle,
             isRepeat
         };
-
         localStorage.setItem(storageKey, JSON.stringify(savedState));
     } catch (err) {
         console.warn("Unable to save player state", err);
     }
 };
-
 const isUserAuthenticated = () => localStorage.getItem(authStorageKey) === "true";
-
 const ensureAuthenticatedPlayback = (showRedirect = true) => {
     if (isUserAuthenticated()) return true;
-
     audio.pause();
     setPlayButtonState(false);
     updateProgressUI(0);
-
     if (showRedirect) {
         const isSignupPage = window.location.pathname.toLowerCase().endsWith("signup.html");
         if (!isSignupPage) {
@@ -209,72 +187,50 @@ const ensureAuthenticatedPlayback = (showRedirect = true) => {
             window.location.href = "signup.html";
         }
     }
-
     return false;
 };
-
 const loadPlayerState = () => {
     try {
         const state = JSON.parse(localStorage.getItem(storageKey));
         if (!state) return null;
-
         currentSong = state.currentSong || 10;
         isShuffle = !!state.isShuffle;
         isRepeat = !!state.isRepeat;
         savedState = state;
-
         updatePlayerInfo(currentSong);
-
         audio.src = resolveAssetUrl(`audio/${currentSong}.mp3`);
         audio.currentTime = Number(state.currentTime) || 0;
-
         setPlayButtonState(state.isPlaying);
-
         if (shuffle)
             shuffle.style.color = isShuffle ? "#1aff05" : "#fff";
-
         if (repeat)
             repeat.style.color = isRepeat ? "#1aff05" : "#fff";
-
         if (state.isPlaying && ensureAuthenticatedPlayback(false))
             audio.play().catch(() => { });
-
         return state;
-
     } catch (err) {
         console.warn("Unable to load player state", err);
         return null;
     }
 };
-
 // ===================== TRACK FUNCTIONS =====================
 const getTrackIds = () => playlist;
-
 const playTrack = (trackId = currentSong) => {
     if (!ensureAuthenticatedPlayback()) return;
-
     currentSong = trackId;
-
     updatePlayerInfo(trackId);
-
     audio.src = resolveAssetUrl(`audio/${trackId}.mp3`);
     audio.currentTime = 0;
-
     updateProgressUI();
     setPlayButtonState(true);
     setActiveTrackIcon(trackId);
-
     savePlayerState();
-
     audio.play().catch(() => { });
 };
-
 // ===================== PLAY / PAUSE =====================
 if (play && progressbar) {
-
     play.addEventListener("click", () => {
         if (!ensureAuthenticatedPlayback()) return;
-
         if (audio.paused || audio.currentTime === 0) {
             audio.play().catch(() => { });
             setPlayButtonState(true);
@@ -282,141 +238,99 @@ if (play && progressbar) {
             audio.pause();
             setPlayButtonState(false);
         }
-
         savePlayerState();
     });
-
     audio.addEventListener("timeupdate", () => {
         safeUpdateProgress();
         savePlayerState();
     });
-
     audio.addEventListener("loadedmetadata", () => {
-
         if (savedState)
             audio.currentTime = Number(savedState.currentTime) || 0;
-
         safeUpdateProgress();
     });
-
     progressbar.addEventListener("input", function () {
-
         const duration = audio.duration;
-
         if (!duration || !isFinite(duration)) return;
-
         updateProgressUI(this.value);
-
         audio.currentTime = (this.value * duration) / 100;
-
         savePlayerState();
     });
 }
-
 // ===================== SONG CLICK =====================
 playMusic.forEach(song => {
-
     song.addEventListener("click", e => {
-
         const id = +e.currentTarget.id;
-
         if (!Number.isNaN(id))
             playTrack(id);
     });
-
 });
 // ===================== NEXT / PREVIOUS =====================
 const playNextSong = () => {
-
     const trackIds = getTrackIds();
     if (!trackIds.length) return;
-
     if (isShuffle) {
         const randomIndex = Math.floor(Math.random() * trackIds.length);
         playTrack(trackIds[randomIndex]);
         return;
     }
-
     const currentIndex = trackIds.indexOf(currentSong);
     const nextIndex =
         currentIndex >= 0
             ? (currentIndex + 1) % trackIds.length
             : 0;
-
     playTrack(trackIds[nextIndex]);
 };
-
 const playPrevSong = () => {
-
     const trackIds = getTrackIds();
     if (!trackIds.length) return;
-
     const currentIndex = trackIds.indexOf(currentSong);
-
     const prevIndex =
         currentIndex > 0
             ? currentIndex - 1
             : trackIds.length - 1;
-
     playTrack(trackIds[prevIndex]);
 };
-
 // ===================== BUTTON EVENTS =====================
 forward?.addEventListener("click", playNextSong);
 backward?.addEventListener("click", playPrevSong);
-
 // ===================== SHUFFLE =====================
 shuffle?.addEventListener("click", () => {
-
     isShuffle = !isShuffle;
-
     shuffle.style.color = isShuffle
         ? "#1aff05"
         : "#fff";
-
     savePlayerState();
 });
-
 // ===================== REPEAT =====================
 repeat?.addEventListener("click", () => {
-
     isRepeat = !isRepeat;
-
     repeat.style.color = isRepeat
         ? "#1aff05"
         : "#fff";
-
     savePlayerState();
 });
-
 // ===================== AUDIO EVENTS =====================
 audio.addEventListener("ended", () => {
-
     if (isRepeat)
         playTrack(currentSong);
     else
         playNextSong();
-
 });
-
 audio.addEventListener("play", () => {
     setPlayButtonState(true);
     savePlayerState();
 });
-
 audio.addEventListener("pause", () => {
     setPlayButtonState(false);
     savePlayerState();
 });
-
 // ===================== SAVE STATE =====================
 window.addEventListener("beforeunload", savePlayerState);
 window.addEventListener("pagehide", savePlayerState);
-
 // ===================== START PLAYER =====================
 const initializePlayer = () => {
     loadPlayerState();
-
     if (!savedState) {
         updatePlayerInfo(currentSong);
         setPlayButtonState(false);
@@ -424,7 +338,6 @@ const initializePlayer = () => {
         updateProgressUI(0);
     }
 };
-
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initializePlayer);
 } else {
